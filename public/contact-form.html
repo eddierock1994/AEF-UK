@@ -5,7 +5,7 @@
 </head>
 <body style="display: none;">
     <!-- This form is hidden and only used for Netlify form detection -->
-    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form name="contact-form" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact-form" />
         <div style="display: none;">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -23,6 +23,7 @@
         </select>
         <input type="text" name="subject" />
         <textarea name="message"></textarea>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx" />
     </form>
 </body>
 </html>

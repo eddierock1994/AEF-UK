@@ -19,15 +19,33 @@ const Contact = () => {
     phone: '',
     subject: '',
     inquiryType: '',
-    message: ''
+    message: '',
+    resume: null
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    if (e.target.type === 'file') {
+      const file = e.target.files[0]
+      if (file) {
+        // Check file size (2MB = 2 * 1024 * 1024 bytes)
+        const maxSize = 2 * 1024 * 1024
+        if (file.size > maxSize) {
+          alert('File size must be less than 2MB. Please choose a smaller file.')
+          e.target.value = '' // Clear the file input
+          return
+        }
+      }
+      setFormData({
+        ...formData,
+        [e.target.name]: file
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
   const handleSubmit = (e) => {
@@ -51,14 +69,15 @@ const Contact = () => {
         // Reset form after submission
         setTimeout(() => {
           setIsSubmitted(false)
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            subject: '',
-            inquiryType: '',
-            message: ''
-          })
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          inquiryType: '',
+          message: '',
+          resume: null
+        })
         }, 3000)
       } else {
         throw new Error('Form submission failed')
@@ -180,11 +199,11 @@ const Contact = () => {
                 <form 
                   name="contact-form" 
                   method="POST" 
+                  encType="multipart/form-data"
                   data-netlify="true" 
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit} 
                   className="space-y-6"
-                  netlify
                 >
                   {/* Hidden fields for Netlify */}
                   <input type="hidden" name="form-name" value="contact-form" />
@@ -293,6 +312,30 @@ const Contact = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
                       placeholder="Please provide details about your inquiry..."
                     />
+                  </div>
+
+                  <div>
+                    <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-2">
+                      Resume/CV (Optional)
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        id="resume"
+                        name="resume"
+                        onChange={handleChange}
+                        accept=".pdf,.doc,.docx"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
+                      />
+                      <p className="mt-2 text-sm text-gray-500">
+                        Upload your resume or CV (PDF, DOC, or DOCX format, max 2MB)
+                      </p>
+                      {formData.resume && (
+                        <p className="mt-1 text-sm text-green-600">
+                          Selected: {formData.resume.name}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <button
