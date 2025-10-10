@@ -32,22 +32,38 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // In a real application, you would submit the form data to your backend
-    console.log('Form submitted:', formData)
-    setIsSubmitted(true)
     
-    // Reset form after submission
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        inquiryType: '',
-        message: ''
-      })
-    }, 3000)
+    // Create FormData for Netlify submission
+    const form = e.target
+    const formData = new FormData(form)
+    
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      console.log('Form submitted successfully')
+      setIsSubmitted(true)
+      
+      // Reset form after submission
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          inquiryType: '',
+          message: ''
+        })
+      }, 3000)
+    })
+    .catch((error) => {
+      console.error('Form submission error:', error)
+      alert('There was an error submitting the form. Please try again.')
+    })
   }
 
   const contactInfo = [
@@ -157,7 +173,22 @@ const Contact = () => {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" netlify name="contact-v1">
+                <form 
+                  name="contact-form" 
+                  method="POST" 
+                  data-netlify="true" 
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                >
+                  {/* Hidden fields for Netlify */}
+                  <input type="hidden" name="form-name" value="contact-form" />
+                  <div style={{ display: 'none' }}>
+                    <label>
+                      Don't fill this out if you're human: <input name="bot-field" />
+                    </label>
+                  </div>
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
