@@ -35,30 +35,34 @@ const Contact = () => {
     
     // Create FormData for Netlify submission
     const form = e.target
-    const formData = new FormData(form)
+    const netlifyFormData = new FormData(form)
     
     // Submit to Netlify
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      body: new URLSearchParams(netlifyFormData).toString()
     })
-    .then(() => {
-      console.log('Form submitted successfully')
-      setIsSubmitted(true)
-      
-      // Reset form after submission
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          inquiryType: '',
-          message: ''
-        })
-      }, 3000)
+    .then((response) => {
+      if (response.ok) {
+        console.log('Form submitted successfully')
+        setIsSubmitted(true)
+        
+        // Reset form after submission
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: '',
+            inquiryType: '',
+            message: ''
+          })
+        }, 3000)
+      } else {
+        throw new Error('Form submission failed')
+      }
     })
     .catch((error) => {
       console.error('Form submission error:', error)
@@ -180,6 +184,7 @@ const Contact = () => {
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit} 
                   className="space-y-6"
+                  netlify
                 >
                   {/* Hidden fields for Netlify */}
                   <input type="hidden" name="form-name" value="contact-form" />

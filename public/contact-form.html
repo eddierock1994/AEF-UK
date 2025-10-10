@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form - Hidden for Netlify Detection</title>
+</head>
+<body style="display: none;">
+    <!-- This form is hidden and only used for Netlify form detection -->
+    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact-form" />
+        <div style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </div>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="inquiryType">
+            <option value="job-seeker">I'm looking for a job</option>
+            <option value="employer">I'm an employer looking for talent</option>
+            <option value="visa-support">I need visa/immigration support</option>
+            <option value="partnership">Business partnership inquiry</option>
+            <option value="general">General inquiry</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+    </form>
+</body>
+</html>
