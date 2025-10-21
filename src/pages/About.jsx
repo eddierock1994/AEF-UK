@@ -39,7 +39,7 @@ const About = () => {
   ]
 
   const milestones = [
-    { year: '2018', title: 'Company Founded', description: 'AEF Recruitment established with a vision to connect global talent' },
+    { year: '2018', title: 'Company Founded', description: `${import.meta.env.COMPANY_NAME} Recruitment established with a vision to connect global talent` },
     { year: '2019', title: 'First 1000 Placements', description: 'Reached our first major milestone in successful international placements' },
     { year: '2021', title: 'Multi-Sector Expansion', description: 'Extended services across healthcare, engineering, education, and trades' },
     { year: '2023', title: 'Digital Innovation', description: 'Launched advanced digital platform for seamless recruitment experience' },
@@ -99,7 +99,7 @@ const About = () => {
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              About AEF Recruitment
+              About {import.meta.env.COMPANY_NAME} Recruitment
             </h1>
             <p className="text-xl mb-8 text-primary-100">
               We are dedicated to connecting global talent with exceptional opportunities, 
@@ -231,7 +231,7 @@ const About = () => {
             Ready to Start Your Journey?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-accent-100">
-            Join thousands of professionals who have trusted AEF Recruitment to transform their careers internationally.
+            Join thousands of professionals who have trusted {import.meta.env.COMPANY_NAME} Recruitment to transform their careers internationally.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="btn-secondary">

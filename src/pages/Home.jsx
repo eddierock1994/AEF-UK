@@ -20,22 +20,36 @@ const Home = () => {
     {
       icon: Shield,
       title: 'Ethical Recruitment',
-      description: 'AEF strictly adheres to the International Code for Ethical Recruitment. We provide free recruitment for all overseas professionals. Our priority is to help you find the job you love by providing all the support you need.'
+      description: `At ${import.meta.env.COMPANY_NAME}, we uphold the International Code of Ethical Recruitment and
+proudly provide 100% free recruitment services for all overseas healthcare
+professionals.
+Our goal is simple — to help you build a fulfilling international career by offering
+transparent guidance, complete support, and ethical practices at every step`
     },
     {
       icon: Users,
-      title: 'Our Employers',
-      description: 'AEF only works with highly credible and reputed employers to ensure that professionals are well taken care of and have a healthy work environment.'
+      title: 'Our Partnered Employers',
+      description: `We collaborate exclusively with reputed, accredited, and trusted healthcare
+institutions worldwide.
+Each partner hospital and organization is carefully vetted to ensure fair
+treatment, professional growth, and a safe, supportive work environment for
+every candidate`
     },
     {
       icon: Globe,
-      title: 'Access to qualified and skilled professionals',
-      description: 'AEF provides employers access to highly talented individuals particularly in \'shortage occupation\' professions. We help you find talent for positions that are hard to fill locally by specialising in International recruitment.'
+      title: 'Access to Qualified Healthcare Talent',
+      description: `For employers, Nexus connects you with pre-screened, highly skilled
+healthcare professionals in globally recognized shortage occupations.
+We help fill critical roles quickly and efficiently through our specialized
+international recruitment network`
     },
     {
       icon: HeartHandshake,
-      title: 'Our Support Team',
-      description: 'AEF provides dedicated one-to-one support for all our clients throughout the entire overseas recruitment process. Our team is well trained and provides thorough assistance for various Registration, Immigration and Visa processes to ensure a smooth and hassle-free recruitment experience.'
+      title: 'Personalized Support, Every Step of the Way',
+      description: `Our dedicated support team provides one-to-one guidance for professionals,
+students, and partners throughout the recruitment and migration process.
+From licensing and registration to immigration and visa formalities, we
+ensure a seamless and stress-free experience from start to finish`
     }
   ]
 
@@ -57,8 +71,8 @@ const Home = () => {
     },
     {
       icon: HardHat,
-      title: 'Specialty Trades',
-      description: 'Skilled tradespeople for specialized construction and manufacturing roles'
+      title: 'Hospitality',
+      description: ''
     }
   ]
 
@@ -77,27 +91,31 @@ const Home = () => {
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 text-white overflow-hidden min-h-screen flex items-center">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70 animate-fade-in-70"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
           style={{
             backgroundImage: `url('/images/hero.png')`
           }}
         ></div>
         {/* Minimal overlay for text readability only */}
+        <div className="absolute inset-0 bg-black/30"></div>
         
         <div className="relative container-max section-padding w-full">
           <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
-                Recruiting done <span className="bg-gradient-to-r from-accent-400 to-primary-400 bg-clip-text text-transparent animate-fade-in">right</span>
+                Connecting Global Talent to a World of Opportunity
               </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
-            With a strong focus on International recruitment, AEF helps connect employers and professionals from around the world. We provide ethical recruitment services with comprehensive support throughout the entire process.
+            At {import.meta.env.COMPANY_NAME} Recruitment, we specialize in connecting overseas professionals
+with credible employers across shortage occupations worldwide. Our goal is to create
+life-changing opportunities while ensuring ethical, transparent, and compliant
+recruitment.
             </p>
 
           </div>
         </div>
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-accent-500/20 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-500/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-500/20 rounded-full blur-xl"></div>
       </section>
 
       {/* Why Choose Us Section */}
@@ -105,7 +123,7 @@ const Home = () => {
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              Why Choose AEF
+              Why Choose {import.meta.env.COMPANY_NAME}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're committed to ethical recruitment practices and providing exceptional service to both candidates and employers worldwide.
@@ -114,7 +132,7 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="card hover:shadow-2xl transition-all duration-300 group">
+              <div key={index} className="card hover:shadow-lg transition-all duration-300 group">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <feature.icon className="h-6 w-6 text-white" />
@@ -123,7 +141,7 @@ const Home = () => {
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-justify">
                       {feature.description}
                     </p>
                   </div>
@@ -148,7 +166,7 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sectors.map((sector, index) => (
-              <div key={index} className="card group hover:shadow-2xl transition-all duration-300 text-center hover:-translate-y-2">
+              <div key={index} className="card group hover:shadow-lg transition-all duration-300 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <sector.icon className="h-8 w-8 text-white" />
                 </div>
@@ -171,40 +189,85 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Testimonials Section */}
       <section className="section-padding bg-gradient-to-r from-primary-600 to-accent-600 text-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-                What Sets Us Apart
-              </h2>
-              <p className="text-xl mb-8 text-primary-100">
-                We go beyond traditional recruitment to provide comprehensive support throughout your international career journey.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-accent-300 flex-shrink-0" />
-                    <span className="text-primary-100">{benefit}</span>
-                  </div>
-                ))}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+              Real stories from professionals who have successfully built their international careers with {import.meta.env.COMPANY_NAME}.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="mb-6">
+                <div className="flex text-accent-300 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-accent-300">
+                  "A truly hassle-free experience!"
+                </h3>
+                <p className="text-primary-100 leading-relaxed text-justify">
+                  From the very beginning of my interview process until now, everything has been smooth and worry-free. The team at Nexus genuinely cares for their candidates and supports them every step of the way.
+                </p>
+              </div>
+              <div className="border-t border-white/20 pt-4">
+                <p className="font-semibold text-white">Balaji R.</p>
+                <p className="text-primary-200 text-sm">Princess Alexandra Hospital NHS Trust</p>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Rocket className="h-10 w-10 text-accent-300" />
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4">Ready to Get Started?</h3>
-                  <p className="text-primary-100 mb-6">
-                    Join thousands of professionals who have successfully built their international careers with AEF.
-                  </p>
-                  <Link to="/contact" className="btn-secondary">
-                    Start Your Journey
-                  </Link>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="mb-6">
+                <div className="flex text-accent-300 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
+                <h3 className="text-xl font-semibold mb-3 text-accent-300">
+                  "A dream come true!"
+                </h3>
+                <p className="text-primary-100 leading-relaxed text-justify">
+                  I'm truly grateful to Nexus for making my dream placement a reality. I wanted to continue in my specialty — Dialysis Nursing — and in the exact hospital I hoped for. Nexus went above and beyond to make it happen. The entire process was smooth, transparent, and stress-free — they truly deliver on their promises.
+                </p>
+              </div>
+              <div className="border-t border-white/20 pt-4">
+                <p className="font-semibold text-white">Shruthy E.</p>
+                <p className="text-primary-200 text-sm">University Hospitals of Leicester NHS Trust</p>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="mb-6">
+                <div className="flex text-accent-300 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-accent-300">
+                  "Seamless international career move"
+                </h3>
+                <p className="text-primary-100 leading-relaxed text-justify">
+                  Nexus made my international career move seamless. From interviews to visa processing, everything was handled with professionalism and genuine care. I'm now working as a Head Chef, exactly where I wanted to be. I'm deeply grateful for Nexus' dedication and support throughout the process.
+                </p>
+              </div>
+              <div className="border-t border-white/20 pt-4">
+                <p className="font-semibold text-white">Paul F.</p>
+                <p className="text-primary-200 text-sm">Colwick Hall Hotel</p>
               </div>
             </div>
           </div>

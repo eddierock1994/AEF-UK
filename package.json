@@ -1,7 +1,7 @@
 {
   "name": "aef-recruitment",
   "version": "1.0.0",
-  "description": "Professional recruitment website for AEF Recruitment",
+  "description": "Professional recruitment website for Nexus Recruitment",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -29,6 +29,6 @@
     "vite": "^4.4.5"
   },
   "keywords": ["recruitment", "jobs", "careers", "international", "healthcare", "engineering"],
-  "author": "AEF Recruitment",
+  "author": "Nexus Recruitment",
   "license": "MIT"
 }

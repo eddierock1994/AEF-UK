@@ -38,21 +38,23 @@ const Header = () => {
       <nav className="container-max section-padding py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3 ml-4">
               <img 
-                src="/images/logo.png" 
-                alt="A.E.F RECRUITMENT" 
+                src="/images/nexus_logo.png" 
+                alt={`${import.meta.env.COMPANY_NAME} RECRUITMENT`}
                 className="h-20 w-auto"
               />
+              {/* {
               <div className="hidden sm:block">
                 <h1 className="text-2xl font-heading font-bold text-gray-900">
                   RECRUITMENT
                 </h1>
               </div>
+              } */}
             </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}

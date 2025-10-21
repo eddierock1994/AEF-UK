@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div>
-                <h3 className="text-xl font-heading font-bold">A.E.F RECRUITMENT</h3>
+                <h3 className="text-xl font-heading font-bold">{import.meta.env.COMPANY_NAME} RECRUITMENT</h3>
               </div>
             </div>
             
@@ -42,22 +42,29 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-primary-500 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-gray-300">
-                    S-Block, No 69/4, Second Floor,<br />
-                    6th Avenue, Anna Nagar<br />
-                    Chennai, India - 600040
+                  Horsefair House 7-8 Sibford Road Hook Norton
+                  Oxfordshire<br />
+                  OX15 5LA<br />
+                  United Kingdom
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-500" />
-                <a href="mailto:info@aefrecruitment.com" className="text-gray-300 hover:text-white transition-colors">
-                  info@aefrecruitment.com
+                <a href="mailto:info@nexusrecruitmentsolutions.com" className="text-gray-300 hover:text-white transition-colors">
+                info@nexusrecruitmentsolutions.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-500" />
                 <a href="tel:+919840067489" className="text-gray-300 hover:text-white transition-colors">
-                  +91 98400 67489
+                  India: +91 98400 67489
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-primary-500" />
+                <a href="tel:+447480067489" className="text-gray-300 hover:text-white transition-colors">
+                  UK: + 44 (0) 7771 646247
                 </a>
               </div>
             </div>
@@ -110,7 +117,7 @@ const Footer = () => {
             </div>
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm">
-                © {currentYear} AEF Recruitment. All rights reserved.
+                © {currentYear} {import.meta.env.COMPANY_NAME} Recruitment. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Committed to ethical recruitment practices

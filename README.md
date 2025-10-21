@@ -1,4 +1,4 @@
-# AEF Recruitment Website
+# Nexus Recruitment Website
 
 A modern, professional recruitment website built with React, featuring responsive design and optimized user experience across all devices.
 
@@ -95,7 +95,7 @@ A modern, professional recruitment website built with React, featuring responsiv
 
 ## 📞 Contact Information
 
-**AEF Recruitment**
+**Nexus Recruitment**
 - **Address**: S-Block, No 69/4, Second Floor, 6th Avenue, Anna Nagar, Chennai, India - 600040
 - **Email**: info@aefrecruitment.com
 - **Phone**: +91 98400 67489
@@ -117,4 +117,4 @@ For technical support or customization requests, please contact the development 
 
 ---
 
-**Built with ❤️ for AEF Recruitment - Connecting global talent with exceptional opportunities**
+**Built with ❤️ for Nexus Recruitment - Connecting global talent with exceptional opportunities**
