@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import { 
   Shield, 
   Users, 
@@ -85,8 +86,56 @@ ensure a seamless and stress-free experience from start to finish`
     'Industry-leading expertise'
   ]
 
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nexus Recruitment Solutions",
+    "url": "https://nexusrecruitmentsolutions.com",
+    "logo": "https://nexusrecruitmentsolutions.com/images/nexus_logo.png",
+    "description": "Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide.",
+    "serviceType": [
+      "Healthcare Recruitment",
+      "International Nursing Jobs", 
+      "Overseas Healthcare Placement",
+      "Visa Support Services",
+      "Immigration Assistance",
+      "Nursing Recruitment Agency",
+      "Medical Staffing Solutions"
+    ],
+    "areaServed": ["United Kingdom", "India", "Global"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Healthcare Recruitment Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Overseas Nursing Jobs",
+            "description": "International nursing opportunities with visa support"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Healthcare Professional Placement",
+            "description": "Connecting healthcare professionals with global opportunities"
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <div className="pt-20">
+      <SEO 
+        title="International Healthcare & Nursing Jobs Overseas"
+        description="Nexus Recruitment Solutions - Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide."
+        keywords="nexus recruitment solutions, healthcare recruitment, overseas nursing jobs, international nurse recruitment, healthcare jobs abroad, nursing recruitment agency, overseas healthcare jobs, international healthcare careers, nurse jobs UK, healthcare visa support, nursing jobs overseas, medical recruitment, healthcare staffing, international nursing opportunities, overseas nurse placement"
+        canonical="/"
+        structuredData={homeStructuredData}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 text-white overflow-hidden min-h-screen flex items-center">
         {/* Background Image */}

@@ -10,10 +10,11 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "lucide-react": "^0.263.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "lucide-react": "^0.263.1"
+    "react-helmet-async": "^1.3.0",
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -28,7 +29,23 @@
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
   },
-  "keywords": ["recruitment", "jobs", "careers", "international", "healthcare", "engineering"],
+  "keywords": [
+    "nexus recruitment solutions",
+    "healthcare recruitment",
+    "overseas nursing jobs",
+    "international nurse recruitment",
+    "healthcare jobs abroad",
+    "nursing recruitment agency",
+    "overseas healthcare jobs",
+    "international healthcare careers",
+    "nurse jobs UK",
+    "healthcare visa support",
+    "nursing jobs overseas",
+    "medical recruitment",
+    "healthcare staffing",
+    "international nursing opportunities",
+    "overseas nurse placement"
+  ],
   "author": "Nexus Recruitment",
   "license": "MIT"
 }

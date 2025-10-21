@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SEO from '../components/SEO'
 import { 
   Search, 
   MapPin, 
@@ -137,6 +138,12 @@ const Jobs = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Healthcare & Nursing Jobs Overseas - International Opportunities"
+        description="Find international healthcare and nursing jobs overseas with Nexus Recruitment Solutions. Browse current openings for nurses, healthcare professionals, and medical staff worldwide with visa support."
+        keywords="overseas nursing jobs, international healthcare jobs, nurse jobs abroad, healthcare careers overseas, nursing opportunities UK, international nurse recruitment, overseas medical jobs, healthcare jobs with visa support, nursing jobs Europe, international healthcare careers"
+        canonical="/jobs"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max text-center">

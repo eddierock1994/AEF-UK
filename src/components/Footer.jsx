@@ -16,7 +16,6 @@ const Footer = () => {
     'Healthcare Recruitment',
     'Engineering Recruitment', 
     'Education Recruitment',
-    'Specialty Trades',
     'Visa Support',
     'Immigration Assistance'
   ]
@@ -100,8 +99,29 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Legal Links */}
+        <div className="border-t border-gray-800 mt-8 pt-6">
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <Link to="/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Terms and Conditions
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/privacy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/cookies" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Cookie Policy
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/modern-slavery" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Modern Slavery Statement
+            </Link>
+          </div>
+        </div>
+
         {/* Social Links & Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 md:mb-0">
               {socialLinks.map((social, index) => (
@@ -117,7 +137,7 @@ const Footer = () => {
             </div>
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm">
-                © {currentYear} {import.meta.env.COMPANY_NAME} Recruitment. All rights reserved.
+                © {currentYear} {import.meta.env.COMPANY_NAME} Recruitment Solutions. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Committed to ethical recruitment practices

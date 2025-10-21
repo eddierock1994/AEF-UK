@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from '../components/SEO'
 import { 
   Shield, 
   Globe, 
@@ -94,6 +95,12 @@ const About = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="About Nexus Recruitment Solutions - International Healthcare Recruitment Agency"
+        description="Learn about Nexus Recruitment Solutions, a leading international healthcare recruitment agency specializing in overseas nursing jobs and healthcare professional placement with ethical recruitment practices."
+        keywords="about nexus recruitment solutions, international healthcare recruitment agency, ethical recruitment practices, overseas nursing recruitment, healthcare staffing company, international nurse placement, medical recruitment agency"
+        canonical="/about"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max">

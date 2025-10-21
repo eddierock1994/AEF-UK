@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SEO from '../components/SEO'
 import { 
   Mail, 
   Phone, 
@@ -94,9 +95,8 @@ const Contact = () => {
       icon: MapPin,
       title: 'Visit Our Office',
       details: [
-        'A-1, TAS Narmada Enclave, AK 53/1',
-        '7th Main Road, Anna Nagar',
-        'Chennai, India - 600040'
+        'Horsefair House 7-8 Sibford Road Hook Norton, Oxfordshire',
+        'OX15 5LA, United Kingdom'
       ],
       action: 'Get Directions'
     },
@@ -155,6 +155,12 @@ const Contact = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Contact Nexus Recruitment Solutions - Get Started with Your Healthcare Career"
+        description="Contact Nexus Recruitment Solutions for international healthcare and nursing job opportunities. Get expert guidance on overseas careers, visa support, and professional placement services."
+        keywords="contact nexus recruitment solutions, healthcare recruitment contact, overseas nursing jobs contact, international healthcare careers, visa support contact, nursing recruitment agency contact"
+        canonical="/contact"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max text-center">
