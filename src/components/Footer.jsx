@@ -134,7 +134,7 @@ const Footer = () => {
                   <social.icon className="h-5 w-5" />
                 </a>
               ))}
-            </div>
+          </div>
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm">
                 © {currentYear} {import.meta.env.COMPANY_NAME} Recruitment Solutions. All rights reserved.

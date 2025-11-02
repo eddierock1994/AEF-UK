@@ -58,22 +58,22 @@ ensure a seamless and stress-free experience from start to finish`
     {
       icon: Stethoscope,
       title: 'Healthcare',
-      description: 'Connecting healthcare professionals with leading medical institutions worldwide'
+      description: 'Empowering doctors, nurses, and allied professionals to build meaningful global careers in world-class healthcare systems.'
     },
     {
       icon: Wrench,
       title: 'Engineering',
-      description: 'Placing skilled engineers in infrastructure and technology projects globally'
+      description: 'Connecting engineers and technical experts with innovative companies driving infrastructure and technology worldwide.'
     },
     {
       icon: GraduationCap,
       title: 'Education',
-      description: 'Matching educators with prestigious schools and universities internationally'
+      description: 'Helping skilled educators and academic professionals find rewarding roles in international schools and universities.'
     },
     {
       icon: HardHat,
       title: 'Hospitality',
-      description: ''
+      description: 'Bringing talented chefs, hoteliers, and service professionals to leading hospitality destinations across the globe.'
     }
   ]
 

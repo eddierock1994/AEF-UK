@@ -18,24 +18,24 @@ import {
 const About = () => {
   const values = [
     {
+      icon: CheckCircle,
+      title: 'Integrity',
+      description: 'We uphold fairness, honesty, and transparency in everything we do.'
+    },
+    {
       icon: Shield,
-      title: 'Ethical Practices',
-      description: 'We strictly adhere to international recruitment standards and provide transparent, ethical services to all our clients.'
+      title: 'Accountability',
+      description: 'We take ownership of every placement and every promise.'
     },
     {
       icon: Heart,
-      title: 'People First',
-      description: 'We believe in putting people at the center of everything we do, ensuring their well-being and career growth.'
-    },
-    {
-      icon: Globe,
-      title: 'Global Reach',
-      description: 'Our international network connects opportunities across continents, opening doors worldwide.'
+      title: 'Empathy',
+      description: 'We understand the hopes, challenges, and aspirations behind every career move.'
     },
     {
       icon: Award,
       title: 'Excellence',
-      description: 'We maintain the highest standards in recruitment, ensuring quality matches for both candidates and employers.'
+      description: 'We continuously strive to exceed expectations for both professionals and employers.'
     }
   ]
 
@@ -106,78 +106,100 @@ const About = () => {
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              About {import.meta.env.COMPANY_NAME} Recruitment
+              Empowering Global Careers Through Ethical Recruitment
             </h1>
-            <p className="text-xl mb-8 text-primary-100">
-              We are dedicated to connecting global talent with exceptional opportunities, 
-              building careers that span continents and transform lives.
-            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8 text-center">
+              Who We Are
+            </h2>
+            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <p>
+                Nexus Recruitment was founded in 2024 with a clear purpose — to provide ethical,
+                transparent, and sustainable international recruitment solutions across the globe.
+              </p>
+              <p>
+                We partner with countries and organizations facing workforce shortages, primarily in the
+                Healthcare, Engineering, Education, and Hospitality sectors, helping them bridge these
+                critical gaps by connecting them with qualified professionals from overseas.
+              </p>
+              <p>
+                Our leadership and recruitment team bring a wealth of experience, having successfully placed
+                over 2,000 professionals across Europe in various industries. We hold ourselves accountable
+                to the highest standards of integrity and compliance, adhering strictly to the World Health
+                Organization's International Code of Ethical Recruitment.
+              </p>
+              <p>
+                We understand that relocating overseas can be a challenging journey — which is why our
+                services are completely free for professionals. From the first consultation to final deployment,
+                we provide comprehensive guidance and one-to-one support, ensuring a seamless and
+                stress-free recruitment process.
+              </p>
+              <p>
+                For employers, Nexus offers access to a diverse pool of pre-screened, highly skilled
+                candidates ready to fill essential workforce shortages. We welcome collaboration with
+                organizations seeking a reliable and ethical international recruitment partner.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8">
+              <Heart className="h-12 w-12 text-primary-600 mb-4" />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                To bridge the gap between talented professionals seeking international opportunities 
-                and employers worldwide who need skilled workers. We believe in ethical recruitment 
-                practices that benefit all parties involved.
+              <p className="text-gray-700 leading-relaxed">
+                To connect global talent with opportunity — ethically, transparently, and with
+                genuine care for professionals and employers alike.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Ethical Recruitment</h4>
-                    <p className="text-gray-600">Following international standards and best practices</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Comprehensive Support</h4>
-                    <p className="text-gray-600">End-to-end assistance from application to settlement</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Global Network</h4>
-                    <p className="text-gray-600">Connections across multiple countries and industries</p>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8">
-                <Target className="h-12 w-12 text-primary-600 mb-4" />
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  To become the world's most trusted international recruitment agency, 
-                  known for our integrity, expertise, and commitment to transforming careers 
-                  and businesses across borders.
-                </p>
-              </div>
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8">
+              <Target className="h-12 w-12 text-primary-600 mb-4" />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h2>
+              <p className="text-gray-700 leading-relaxed">
+                To be a trusted global recruitment partner that builds sustainable, people-centric
+                solutions for workforce challenges worldwide.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Global Reach */}
       <section className="section-padding bg-gray-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+              Our Global Reach
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              With operations in the UK and India, and partnerships across Europe, Nexus is now
+              expanding into Australia, Canada, and the Middle East — connecting professionals to
+              trusted employers in regions that need their expertise most.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="section-padding bg-white">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              Our Core Values
+              Our Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These values guide every decision we make and every relationship we build.
-            </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
