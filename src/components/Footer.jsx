@@ -15,6 +15,7 @@ const Footer = () => {
   const services = [
     'Healthcare Recruitment',
     'Engineering Recruitment', 
+    'Hospitality Recruitment',
     'Education Recruitment',
     'Visa Support',
     'Immigration Assistance'
@@ -56,8 +57,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-500" />
-                <a href="tel:+919840067489" className="text-gray-300 hover:text-white transition-colors">
-                  India: +91 98400 67489
+                <a href="tel:+919677101515" className="text-gray-300 hover:text-white transition-colors">
+                  India: +91 96771 01515
                 </a>
               </div>
               <div className="flex items-center space-x-3">

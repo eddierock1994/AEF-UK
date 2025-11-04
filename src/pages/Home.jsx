@@ -25,7 +25,7 @@ const Home = () => {
 proudly provide 100% free recruitment services for all overseas healthcare
 professionals.
 Our goal is simple — to help you build a fulfilling international career by offering
-transparent guidance, complete support, and ethical practices at every step`
+transparent guidance, complete support, and ethical practices at every step.`
     },
     {
       icon: Users,
@@ -34,7 +34,7 @@ transparent guidance, complete support, and ethical practices at every step`
 institutions worldwide.
 Each partner hospital and organization is carefully vetted to ensure fair
 treatment, professional growth, and a safe, supportive work environment for
-every candidate`
+every candidate.`
     },
     {
       icon: Globe,
@@ -42,15 +42,14 @@ every candidate`
       description: `For employers, Nexus connects you with pre-screened, highly skilled
 healthcare professionals in globally recognized shortage occupations.
 We help fill critical roles quickly and efficiently through our specialized
-international recruitment network`
+international recruitment network.`
     },
     {
       icon: HeartHandshake,
       title: 'Personalized Support, Every Step of the Way',
-      description: `Our dedicated support team provides one-to-one guidance for professionals,
-students, and partners throughout the recruitment and migration process.
+      description: `Our dedicated support team provides one-to-one guidance for professionals, and partners throughout the recruitment and migration process.
 From licensing and registration to immigration and visa formalities, we
-ensure a seamless and stress-free experience from start to finish`
+ensure a seamless and stress-free experience from start to finish.`
     }
   ]
 

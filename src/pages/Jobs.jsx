@@ -113,16 +113,14 @@ const Jobs = () => {
     { value: 'Healthcare', label: 'Healthcare' },
     { value: 'Engineering', label: 'Engineering' },
     { value: 'Education', label: 'Education' },
-    { value: 'Specialty Trades', label: 'Specialty Trades' }
+    { value: 'Hospitality', label: 'Hospitality' }
   ]
 
   const locations = [
     { value: 'all', label: 'All Locations' },
-    { value: 'Australia', label: 'Australia' },
-    { value: 'Canada', label: 'Canada' },
-    { value: 'UAE', label: 'UAE' },
     { value: 'UK', label: 'United Kingdom' },
-    { value: 'New Zealand', label: 'New Zealand' }
+    { value: 'UAE', label: 'UAE' },
+    { value: 'Australia', label: 'Australia' },
   ]
 
   const filteredJobs = jobListings.filter(job => {
@@ -151,7 +149,7 @@ const Jobs = () => {
             Find Your Dream Career
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-100">
-            Explore international opportunities across healthcare, engineering, education, and specialty trades.
+            Explore international opportunities across healthcare, engineering, education, and hospitality.
           </p>
           
           {/* Job Search Bar */}

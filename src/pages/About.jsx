@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { 
   Shield, 
@@ -152,7 +153,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-gray-50">
+      <section className="pb-16 pt-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8">
@@ -263,12 +264,12 @@ const About = () => {
             Join thousands of professionals who have trusted {import.meta.env.COMPANY_NAME} Recruitment to transform their careers internationally.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-secondary">
+            <Link to="/jobs" className="btn-secondary">
               Find Opportunities
-            </button>
-            <button className="btn-outline border-white text-white hover:bg-white hover:text-accent-600">
+            </Link>
+            <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-accent-600">
               Contact Our Team
-            </button>
+            </Link>
           </div>
         </div>
       </section>
