@@ -97,7 +97,7 @@ const About = () => {
   return (
     <div className="pt-20">
       <SEO 
-        title="About Nexus Recruitment Solutions - International Healthcare Recruitment Agency"
+        title="About Us - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
         description="Learn about Nexus Recruitment Solutions, a leading international healthcare recruitment agency specializing in overseas nursing jobs and healthcare professional placement with ethical recruitment practices."
         keywords="about nexus recruitment solutions, international healthcare recruitment agency, ethical recruitment practices, overseas nursing recruitment, healthcare staffing company, international nurse placement, medical recruitment agency"
         canonical="/about"
@@ -188,7 +188,7 @@ const About = () => {
             <p className="text-lg text-gray-700 leading-relaxed">
               With operations in the UK and India, and partnerships across Europe, Nexus is now
               expanding into Australia, Canada, and the Middle East — connecting professionals to
-              trusted employers in regions that need their expertise most.
+            trusted employers in regions that need their expertise most.
             </p>
           </div>
         </div>

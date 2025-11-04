@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div>
-                <h3 className="text-xl font-heading font-bold">{import.meta.env.COMPANY_NAME} RECRUITMENT</h3>
+                <h3 className="text-xl font-heading font-bold">{import.meta.env.COMPANY_NAME} Recruitment Solutions</h3>
               </div>
             </div>
             

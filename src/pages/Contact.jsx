@@ -143,7 +143,7 @@ const Contact = () => {
   return (
     <div className="pt-20">
       <SEO 
-        title="Contact Nexus Recruitment Solutions - Get Started with Your Healthcare Career"
+        title="Contact Us - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
         description="Contact Nexus Recruitment Solutions for international healthcare and nursing job opportunities. Get expert guidance on overseas careers, visa support, and professional placement services."
         keywords="contact nexus recruitment solutions, healthcare recruitment contact, overseas nursing jobs contact, international healthcare careers, visa support contact, nursing recruitment agency contact"
         canonical="/contact"

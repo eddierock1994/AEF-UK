@@ -129,7 +129,7 @@ ensure a seamless and stress-free experience from start to finish.`
   return (
     <div className="pt-20">
       <SEO 
-        title="International Healthcare & Nursing Jobs Overseas"
+        title="Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
         description="Nexus Recruitment Solutions - Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide."
         keywords="nexus recruitment solutions, healthcare recruitment, overseas nursing jobs, international nurse recruitment, healthcare jobs abroad, nursing recruitment agency, overseas healthcare jobs, international healthcare careers, nurse jobs UK, healthcare visa support, nursing jobs overseas, medical recruitment, healthcare staffing, international nursing opportunities, overseas nurse placement"
         canonical="/"

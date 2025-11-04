@@ -137,7 +137,7 @@ const Jobs = () => {
   return (
     <div className="pt-20">
       <SEO 
-        title="Healthcare & Nursing Jobs Overseas - International Opportunities"
+        title="Current Opportunities - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
         description="Find international healthcare and nursing jobs overseas with Nexus Recruitment Solutions. Browse current openings for nurses, healthcare professionals, and medical staff worldwide with visa support."
         keywords="overseas nursing jobs, international healthcare jobs, nurse jobs abroad, healthcare careers overseas, nursing opportunities UK, international nurse recruitment, overseas medical jobs, healthcare jobs with visa support, nursing jobs Europe, international healthcare careers"
         canonical="/jobs"

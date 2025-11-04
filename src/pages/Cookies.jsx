@@ -1,8 +1,14 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 const Cookies = () => {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Cookie Policy - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
+        description="Learn about how Nexus Recruitment Solutions uses cookies and similar technologies on our website."
+        canonical="/cookies"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max">

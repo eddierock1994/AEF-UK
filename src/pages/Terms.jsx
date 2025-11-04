@@ -1,8 +1,14 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 const Terms = () => {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Terms and Conditions - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
+        description="Read the terms and conditions for using Nexus Recruitment Solutions services. Understand our policies and guidelines for international healthcare recruitment."
+        canonical="/terms"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max">

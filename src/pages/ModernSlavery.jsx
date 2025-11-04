@@ -1,8 +1,14 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 const ModernSlavery = () => {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Modern Slavery Statement - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
+        description="Our commitment to combating modern slavery and human trafficking in all its forms. Read Nexus Recruitment Solutions' modern slavery statement."
+        canonical="/modern-slavery"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max">
