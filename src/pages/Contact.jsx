@@ -117,7 +117,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@aefrecruitment.com']
+      details: ['info@nexusrecruitmentsolutions.com']
     },
     {
       icon: Clock,
@@ -404,9 +404,19 @@ const Contact = () => {
                           </h3>
                           <div className="space-y-1">
                             {info.details.map((detail, idx) => (
-                              <p key={idx} className="text-gray-600 text-sm">
-                                {detail}
-                              </p>
+                              info.title === 'Email' ? (
+                                <a 
+                                  key={idx} 
+                                  href={`mailto:${detail}`}
+                                  className="text-primary-600 hover:text-primary-700 text-sm transition-colors"
+                                >
+                                  {detail}
+                                </a>
+                              ) : (
+                                <p key={idx} className="text-gray-600 text-sm">
+                                  {detail}
+                                </p>
+                              )
                             ))}
                           </div>
                         </div>
