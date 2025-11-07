@@ -58,7 +58,7 @@ const Contact = () => {
     // Submit to Netlify
     fetch('/', {
       method: 'POST',
-      body: new URLSearchParams(netlifyFormData).toString()
+      body: netlifyFormData
     })
     .then((response) => {
       if (response.ok) {
