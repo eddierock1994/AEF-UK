@@ -58,7 +58,6 @@ const Contact = () => {
     // Submit to Netlify
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(netlifyFormData).toString()
     })
     .then((response) => {
