@@ -134,22 +134,52 @@ const Jobs = () => {
 
   const featuredJobs = jobListings.filter(job => job.featured)
 
+  const jobsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "name": "Healthcare Jobs Overseas",
+        "description": "International healthcare job opportunities"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nexusrecruitmentsolutions.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Jobs",
+            "item": "https://nexusrecruitmentsolutions.com/jobs"
+          }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="pt-20">
       <SEO 
-        title="Current Opportunities - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
-        description="Find international healthcare and nursing jobs overseas with Nexus Recruitment Solutions. Browse current openings for nurses, healthcare professionals, and medical staff worldwide with visa support."
+        title="Healthcare Jobs Abroad - Nexus Recruitment"
+        description="Browse international nursing & healthcare jobs. UK, Canada, Australia opportunities. Nexus Recruitment offers free visa support & ethical placement."
         keywords="overseas nursing jobs, international healthcare jobs, nurse jobs abroad, healthcare careers overseas, nursing opportunities UK, international nurse recruitment, overseas medical jobs, healthcare jobs with visa support, nursing jobs Europe, international healthcare careers"
         canonical="/jobs"
+        structuredData={jobsSchema}
       />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Find Your Dream Career
+            Healthcare Jobs Abroad - Nexus Recruitment Solutions
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-100">
-            Explore international opportunities across healthcare, engineering, education, and hospitality.
+            Nexus Recruitment Solutions offers international healthcare opportunities in the UK, Canada, Australia, and more. 
+            Explore positions with free visa support and ethical placement services.
           </p>
           
           {/* Job Search Bar */}

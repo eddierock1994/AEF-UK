@@ -139,23 +139,51 @@ const Contact = () => {
     { value: 'other', label: 'Other' }
   ]
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": "Contact Nexus Recruitment Solutions"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nexusrecruitmentsolutions.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://nexusrecruitmentsolutions.com/contact"
+          }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="pt-20">
       <SEO 
-        title="Contact Us - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
-        description="Contact Nexus Recruitment Solutions for international healthcare and nursing job opportunities. Get expert guidance on overseas careers, visa support, and professional placement services."
+        title="Contact Nexus Recruitment - Get Started Today"
+        description="Contact Nexus Recruitment for international healthcare jobs. UK: +44 (0) 7771 646247, India: +91 96771 01515. Free consultation & visa support."
         keywords="contact nexus recruitment solutions, healthcare recruitment contact, overseas nursing jobs contact, international healthcare careers, visa support contact, nursing recruitment agency contact"
         canonical="/contact"
+        structuredData={contactSchema}
       />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Get In Touch
+            Contact Nexus Recruitment - Start Your Journey
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-100">
-            Ready to take the next step in your career or find the perfect talent? 
-            We're here to help you succeed.
+            Contact Nexus Recruitment Solutions today for international healthcare jobs. Ready to take the next step in your career? 
+            Our expert team is here to help you succeed with free consultation and visa support.
           </p>
         </div>
       </section>

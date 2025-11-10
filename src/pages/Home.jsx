@@ -85,52 +85,89 @@ ensure a seamless and stress-free experience from start to finish.`
     'Industry-leading expertise'
   ]
 
+  const faqs = [
+    {
+      question: 'Are Nexus Recruitment services free for healthcare professionals?',
+      answer: 'Yes, Nexus Recruitment Solutions provides 100% free recruitment services for all overseas healthcare professionals. We never charge candidates for our services, adhering to ethical recruitment practices.'
+    },
+    {
+      question: 'Which countries does Nexus Recruitment place healthcare professionals in?',
+      answer: 'Nexus Recruitment Solutions places healthcare professionals in over 15 countries including the UK, Canada, Australia, UAE, New Zealand, and many others across Europe and the Middle East.'
+    },
+    {
+      question: 'Does Nexus Recruitment provide visa and immigration support?',
+      answer: 'Yes, Nexus Recruitment Solutions provides comprehensive visa and immigration support, including documentation, application processing, and pre-departure orientation for all our healthcare candidates.'
+    },
+    {
+      question: 'How long does the Nexus Recruitment process take?',
+      answer: 'The Nexus Recruitment timeline varies by role and destination country, but typically ranges from 3-6 months from initial application to placement, including visa processing and credentialing.'
+    },
+    {
+      question: 'What healthcare sectors does Nexus Recruitment specialize in?',
+      answer: 'Nexus Recruitment Solutions specializes in healthcare, including nursing, allied health, medical doctors, and healthcare support staff. We focus on shortage occupations in global healthcare systems.'
+    }
+  ]
+
   const homeStructuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Nexus Recruitment Solutions",
-    "url": "https://nexusrecruitmentsolutions.com",
-    "logo": "https://nexusrecruitmentsolutions.com/images/nexus_logo.png",
-    "description": "Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide.",
-    "serviceType": [
-      "Healthcare Recruitment",
-      "International Nursing Jobs", 
-      "Overseas Healthcare Placement",
-      "Visa Support Services",
-      "Immigration Assistance",
-      "Nursing Recruitment Agency",
-      "Medical Staffing Solutions"
-    ],
-    "areaServed": ["United Kingdom", "India", "Global"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Healthcare Recruitment Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Overseas Nursing Jobs",
-            "description": "International nursing opportunities with visa support"
-          }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Nexus Recruitment Solutions",
+        "alternateName": "Nexus Recruitment",
+        "url": "https://nexusrecruitmentsolutions.com",
+        "logo": "https://nexusrecruitmentsolutions.com/images/nexus_logo.png",
+        "description": "Nexus Recruitment Solutions - Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide.",
+        "serviceType": [
+          "Healthcare Recruitment",
+          "International Nursing Jobs", 
+          "Overseas Healthcare Placement",
+          "Visa Support Services",
+          "Immigration Assistance",
+          "Nursing Recruitment Agency",
+          "Medical Staffing Solutions"
+        ],
+        "areaServed": ["United Kingdom", "India", "Global"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+44-0-7771-646247",
+          "contactType": "Customer Service",
+          "areaServed": "GB"
         },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Healthcare Professional Placement",
-            "description": "Connecting healthcare professionals with global opportunities"
+        "sameAs": [
+          
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
           }
-        }
-      ]
-    }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nexusrecruitmentsolutions.com/"
+          }
+        ]
+      }
+    ]
   }
 
   return (
     <div className="pt-20">
       <SEO 
-        title="Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
-        description="Nexus Recruitment Solutions - Leading international healthcare recruitment agency specializing in overseas nursing jobs, healthcare professional placement, and visa support services worldwide."
+        title="Nexus Recruitment - Healthcare Jobs Overseas"
+        description="Nexus Recruitment Solutions connects healthcare professionals with international nursing jobs. Expert visa support, ethical recruitment, free services."
         keywords="nexus recruitment solutions, healthcare recruitment, overseas nursing jobs, international nurse recruitment, healthcare jobs abroad, nursing recruitment agency, overseas healthcare jobs, international healthcare careers, nurse jobs UK, healthcare visa support, nursing jobs overseas, medical recruitment, healthcare staffing, international nursing opportunities, overseas nurse placement"
         canonical="/"
         structuredData={homeStructuredData}
@@ -150,10 +187,10 @@ ensure a seamless and stress-free experience from start to finish.`
         <div className="relative container-max section-padding w-full">
           <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">
-                Connecting Global Talent to a World of Opportunity
+                Nexus Recruitment Solutions - International Healthcare Jobs
               </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
-            At {import.meta.env.COMPANY_NAME} Recruitment, we specialize in connecting overseas professionals
+            Nexus Recruitment Solutions specializes in connecting overseas healthcare professionals
 with credible employers across shortage occupations worldwide. Our goal is to create
 life-changing opportunities while ensuring ethical, transparent, and compliant
 recruitment.
@@ -317,6 +354,47 @@ recruitment.
                 <p className="font-semibold text-white">Paul F.</p>
                 <p className="text-primary-200 text-sm">Colwick Hall Hotel</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - Hidden but crawlable for SEO */}
+      <section className="hidden" aria-hidden="false">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-xl text-gray-600">
+                Everything you need to know about Nexus Recruitment Solutions
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <details key={index} className="group card hover:shadow-lg transition-all duration-300">
+                  <summary className="flex justify-between items-center cursor-pointer p-6">
+                    <span className="font-semibold text-gray-900 text-lg pr-4">{faq.question}</span>
+                    <span className="text-primary-600 group-open:rotate-180 transition-transform flex-shrink-0">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-gray-600 mb-4">Still have questions?</p>
+              <Link to="/contact" className="btn-primary">
+                Contact Nexus Recruitment Today
+              </Link>
             </div>
           </div>
         </div>

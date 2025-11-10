@@ -94,21 +94,53 @@ const About = () => {
     'UK Tier 2 Sponsor License Holder'
   ]
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "name": "About Nexus Recruitment Solutions",
+        "description": "Ethical healthcare recruitment since 2024. Nexus Recruitment connects professionals with global opportunities."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nexusrecruitmentsolutions.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://nexusrecruitmentsolutions.com/about"
+          }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="pt-20">
       <SEO 
-        title="About Us - Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
-        description="Learn about Nexus Recruitment Solutions, a leading international healthcare recruitment agency specializing in overseas nursing jobs and healthcare professional placement with ethical recruitment practices."
+        title="About Nexus Recruitment - Healthcare Careers"
+        description="Ethical healthcare recruitment since 2024. Nexus Recruitment connects professionals with global opportunities. Free services, visa support, 2000+ placements."
         keywords="about nexus recruitment solutions, international healthcare recruitment agency, ethical recruitment practices, overseas nursing recruitment, healthcare staffing company, international nurse placement, medical recruitment agency"
         canonical="/about"
+        structuredData={aboutSchema}
       />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Empowering Global Careers Through Ethical Recruitment
+              About Nexus Recruitment - Ethical Healthcare Careers
             </h1>
+            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+              Nexus Recruitment Solutions empowers global healthcare professionals through ethical, transparent recruitment practices worldwide.
+            </p>
           </div>
         </div>
       </section>
@@ -122,12 +154,12 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Nexus Recruitment was founded in 2024 with a clear purpose — to provide ethical,
+                <strong>Nexus Recruitment Solutions</strong> was founded in 2024 with a clear purpose — to provide ethical,
                 transparent, and sustainable international recruitment solutions across the globe.
               </p>
               <p>
-                We partner with countries and organizations facing workforce shortages, primarily in the
-                Healthcare, Engineering, Education, and Hospitality sectors, helping them bridge these
+                <strong>Nexus Recruitment Solutions</strong> partners with countries and organizations facing workforce shortages, primarily in the
+                <Link to="/jobs" className="text-primary-600 hover:text-primary-700 font-semibold"> Healthcare</Link>, Engineering, Education, and Hospitality sectors, helping them bridge these
                 critical gaps by connecting them with qualified professionals from overseas.
               </p>
               <p>
@@ -137,15 +169,15 @@ const About = () => {
                 Organization's International Code of Ethical Recruitment.
               </p>
               <p>
-                We understand that relocating overseas can be a challenging journey — which is why our
-                services are completely free for professionals. From the first consultation to final deployment,
+                We understand that relocating overseas can be a challenging journey — which is why <strong>Nexus Recruitment Solutions</strong> offers 
+                completely free services for professionals. From the first consultation to final deployment,
                 we provide comprehensive guidance and one-to-one support, ensuring a seamless and
-                stress-free recruitment process.
+                stress-free recruitment process. <Link to="/contact" className="text-primary-600 hover:text-primary-700 font-semibold">Contact us today</Link> to get started.
               </p>
               <p>
-                For employers, Nexus offers access to a diverse pool of pre-screened, highly skilled
+                For employers, <strong>Nexus Recruitment Solutions</strong> offers access to a diverse pool of pre-screened, highly skilled
                 candidates ready to fill essential workforce shortages. We welcome collaboration with
-                organizations seeking a reliable and ethical international recruitment partner.
+                organizations seeking a reliable and ethical international recruitment partner. <Link to="/jobs" className="text-primary-600 hover:text-primary-700 font-semibold">View current opportunities</Link>.
               </p>
             </div>
           </div>
@@ -264,11 +296,11 @@ const About = () => {
             Join thousands of professionals who have trusted {import.meta.env.COMPANY_NAME} Recruitment to transform their careers internationally.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/jobs" className="btn-secondary">
-              Find Opportunities
+            <Link to="/jobs" className="btn-secondary" aria-label="Browse healthcare jobs overseas with Nexus Recruitment">
+              Browse Healthcare Jobs
             </Link>
-            <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-accent-600">
-              Contact Our Team
+            <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-accent-600" aria-label="Contact Nexus Recruitment for international healthcare careers">
+              Contact Nexus Recruitment
             </Link>
           </div>
         </div>

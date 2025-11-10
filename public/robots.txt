@@ -1,18 +1,30 @@
+# Nexus Recruitment Solutions - Robots.txt
+# Allow all search engines to crawl the entire site
+
+# Global rules for all bots
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://nexusrecruitmentsolutions.com/sitemap.xml
-
-# Crawl-delay for respectful crawling
+Allow: /sitemap.xml
+Allow: /robots.txt
 Crawl-delay: 1
 
-# Allow all major search engines
+# Sitemap location
+Sitemap: https://nexusrecruitmentsolutions.com/sitemap.xml
+
+# Specific rules for major search engines
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
@@ -20,7 +32,18 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 # Block access to admin or sensitive areas (if any)
 # User-agent: *
 # Disallow: /admin/
 # Disallow: /private/
+
+# Allow common web resources
+User-agent: *
+Allow: /images/
+Allow: /public/

@@ -41,7 +41,7 @@ const Header = () => {
             <Link to="/" className="flex items-center space-x-3 ml-4">
               <img 
                 src="/images/nexus_logo.png" 
-                alt={`${import.meta.env.COMPANY_NAME} RECRUITMENT`}
+                alt="Nexus Recruitment Solutions - International Healthcare & Nursing Jobs Overseas"
                 className="h-20 w-auto"
               />
               {/* {
