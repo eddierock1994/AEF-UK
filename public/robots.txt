@@ -43,7 +43,22 @@ Allow: /
 # Disallow: /admin/
 # Disallow: /private/
 
-# Allow common web resources
+# Allow common web resources and assets
 User-agent: *
 Allow: /images/
 Allow: /public/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.jsx$
+Allow: /src/
+Allow: /assets/
+Allow: /_redirects
+
+# Explicitly allow important pages
+Allow: /about
+Allow: /jobs
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+Allow: /modern-slavery

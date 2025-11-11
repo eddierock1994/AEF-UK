@@ -1,1 +1,10 @@
+# Netlify redirects for SPA (Single Page Application)
+# This is a rewrite (200), not a redirect (301/302)
+# It allows React Router to handle all routes
+
+# All routes go to index.html (SPA handling)
 /*    /index.html   200
+
+# Ensure sitemap and robots.txt are accessible
+/sitemap.xml   /sitemap.xml   200
+/robots.txt    /robots.txt    200
