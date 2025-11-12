@@ -372,13 +372,13 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
           </div>
           
           <div className="flex flex-col space-y-2 md:w-auto w-full">
-            <a 
-              href={`mailto:${job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}?subject=Application for ${job.title}`}
+            <Link 
+              to="/contact"
               className="btn-primary flex items-center justify-center"
             >
               Apply Now
               <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
+            </Link>
             <Link 
               to={`/jobs/${job.slug}`}
               className="btn-outline text-sm text-center"
@@ -420,13 +420,13 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
       </div>
       
       <div className="flex flex-col space-y-2">
-        <a 
-          href={`mailto:${job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}?subject=Application for ${job.title}`}
+        <Link 
+          to="/contact"
           className="btn-primary w-full flex items-center justify-center"
         >
           Apply Now
           <ExternalLink className="ml-2 h-4 w-4" />
-        </a>
+        </Link>
         <Link 
           to={`/jobs/${job.slug}`}
           className="btn-outline w-full text-sm text-center"

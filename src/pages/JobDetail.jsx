@@ -242,14 +242,14 @@ const JobDetail = () => {
             {/* Apply CTA */}
             <div className="bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl p-10 text-center text-white">
               <h2 className="text-3xl font-bold mb-4">Interested in this opportunity?</h2>
-              <p className="text-xl mb-8">Send your CV to get started with your application</p>
-              <a 
-                href={`mailto:${job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}?subject=Application for ${job.title}`}
+              <p className="text-xl mb-8">Contact us to get started with your application</p>
+              <Link 
+                to="/contact"
                 className="inline-flex items-center justify-center px-10 py-4 bg-white text-primary-600 font-bold text-lg rounded-lg hover:bg-gray-100 transition-colors"
               >
-                Apply Now - {job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}
+                Apply Now - Contact Us
                 <ExternalLink className="ml-3 h-6 w-6" />
-              </a>
+              </Link>
               <p className="text-sm text-primary-100 mt-4">Posted {job.posted}</p>
             </div>
           </div>
