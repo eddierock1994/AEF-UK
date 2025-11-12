@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Jobs from './pages/Jobs'
+import JobDetail from './pages/JobDetail'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Terms from './pages/Terms'
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/jobs/:slug" element={<JobDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/terms" element={<Terms />} />

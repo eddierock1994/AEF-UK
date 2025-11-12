@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { 
   Search, 
@@ -15,15 +16,30 @@ import {
   Building,
   Calendar
 } from 'lucide-react'
+import jobListingsData from '../data/jobListings.json'
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedSector, setSelectedSector] = useState('all')
   const [selectedLocation, setSelectedLocation] = useState('all')
 
-  const jobListings = [/*
+  // Icon mapping for sectors
+  const sectorIcons = {
+    'Healthcare': Stethoscope,
+    'Engineering': Wrench,
+    'Education': GraduationCap,
+    'Specialty Trades': HardHat
+  }
+
+  // Add icons to job data
+  const jobListings = jobListingsData.map(job => ({
+    ...job,
+    icon: sectorIcons[job.sector] || Stethoscope
+  }))
+
+  /* Commented out old job listings
     {
-      id: 1,
+      id: 2,
       title: 'Registered Nurse - ICU',
       company: 'Royal Melbourne Hospital',
       location: 'Melbourne, Australia',
@@ -37,7 +53,7 @@ const Jobs = () => {
       requirements: ['Bachelor\'s degree in Nursing', '2+ years ICU experience', 'English proficiency']
     },
     {
-      id: 2,
+      id: 3,
       title: 'Senior Software Engineer',
       company: 'Tech Innovation Ltd',
       location: 'Toronto, Canada',
@@ -105,8 +121,8 @@ const Jobs = () => {
       featured: false,
       description: 'Lead infrastructure projects in one of the world\'s most liveable cities.',
       requirements: ['Civil Engineering degree', 'Infrastructure experience', 'Project management skills']
-    }*/
-  ]
+    }
+  */
 
   const sectors = [
     { value: 'all', label: 'All Sectors' },
@@ -177,10 +193,6 @@ const Jobs = () => {
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
             Healthcare Jobs Abroad - Nexus Recruitment Solutions
           </h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-100">
-            Nexus Recruitment Solutions offers international healthcare opportunities in the UK, Canada, Australia, and more. 
-            Explore positions with free visa support and ethical placement services.
-          </p>
           
           {/* Job Search Bar */}
           <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
@@ -271,7 +283,12 @@ const Jobs = () => {
           ) : (
             <div className="space-y-6">
               {filteredJobs.map(job => (
-                <JobCard key={job.id} job={job} featured={false} layout="horizontal" />
+                <JobCard 
+                  key={job.id} 
+                  job={job} 
+                  featured={false} 
+                  layout="horizontal"
+                />
               ))}
             </div>
           )}
@@ -304,7 +321,7 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
   if (layout === 'horizontal') {
     return (
       <div className={`card hover:shadow-xl transition-all duration-300 ${featured ? 'ring-2 ring-yellow-400' : ''}`}>
-        <div className="flex flex-col md:flex-row md:items-center gap-6">
+        <div className="flex flex-col md:flex-row md:items-start gap-6">
           <div className="flex items-start space-x-4 flex-grow">
             <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center flex-shrink-0">
               <IconComponent className="h-6 w-6 text-white" />
@@ -342,12 +359,12 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
               <p className="text-gray-600 mb-3">{job.description}</p>
               
               <div className="flex flex-wrap gap-2 mb-3">
-                {job.requirements.slice(0, 2).map((req, index) => (
+                {job.requirements && job.requirements.slice(0, 2).map((req, index) => (
                   <span key={index} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                     {req}
                   </span>
                 ))}
-                {job.requirements.length > 2 && (
+                {job.requirements && job.requirements.length > 2 && (
                   <span className="text-xs text-gray-500">+{job.requirements.length - 2} more</span>
                 )}
               </div>
@@ -355,19 +372,26 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
           </div>
           
           <div className="flex flex-col space-y-2 md:w-auto w-full">
-            <button className="btn-primary flex items-center justify-center">
+            <a 
+              href={`mailto:${job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}?subject=Application for ${job.title}`}
+              className="btn-primary flex items-center justify-center"
+            >
               Apply Now
               <ExternalLink className="ml-2 h-4 w-4" />
-            </button>
-            <button className="btn-outline text-sm">
-              Save Job
-            </button>
+            </a>
+            <Link 
+              to={`/jobs/${job.slug}`}
+              className="btn-outline text-sm text-center"
+            >
+              View Full Details
+            </Link>
           </div>
         </div>
       </div>
     )
   }
 
+  // Vertical layout for featured jobs
   return (
     <div className={`card hover:shadow-xl transition-all duration-300 ${featured ? 'ring-2 ring-yellow-400' : ''}`}>
       <div className="flex items-start justify-between mb-4">
@@ -395,15 +419,20 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
         </div>
       </div>
       
-      <p className="text-gray-600 text-sm mb-4">{job.description}</p>
-      
       <div className="flex flex-col space-y-2">
-        <button className="btn-primary w-full">
+        <a 
+          href={`mailto:${job.applyEmail || 'apply@nexusrecruitmentsolutions.com'}?subject=Application for ${job.title}`}
+          className="btn-primary w-full flex items-center justify-center"
+        >
           Apply Now
-        </button>
-        <button className="btn-outline w-full text-sm">
+          <ExternalLink className="ml-2 h-4 w-4" />
+        </a>
+        <Link 
+          to={`/jobs/${job.slug}`}
+          className="btn-outline w-full text-sm text-center"
+        >
           View Details
-        </button>
+        </Link>
       </div>
       
       <div className="mt-4 pt-4 border-t border-gray-100">
