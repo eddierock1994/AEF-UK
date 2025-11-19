@@ -221,7 +221,7 @@ const JobDetail = () => {
 
             {/* Requirements */}
             <div className="bg-gray-50 rounded-xl p-8">
-              <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">Requirements for UK Doctors</h2>
+              <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">Requirements</h2>
               <ul className="space-y-4">
                 {job.requirements.map((item, idx) => (
                   <li key={idx} className="flex items-start text-gray-700 text-lg">
