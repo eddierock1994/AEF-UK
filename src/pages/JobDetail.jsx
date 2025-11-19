@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { 
@@ -11,12 +11,53 @@ import {
   Building,
   Star
 } from 'lucide-react'
-import jobListingsData from '../data/jobListings.json'
+import { getRelativeTime } from '../utils/dateUtils'
+import { useJobListings } from '../hooks/useJobListings'
 
 const JobDetail = () => {
   const { slug } = useParams()
-  const job = jobListingsData.find(j => j.slug === slug)
+  
+  // Use custom hook to fetch job listings (cached from Jobs page if already loaded)
+  const { jobListings, isLoading, error } = useJobListings()
+  
+  // Find the specific job by slug
+  const job = useMemo(() => {
+    return jobListings.find(j => j.slug === slug)
+  }, [jobListings, slug])
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="pt-20 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-xl text-gray-600">Loading job details...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="pt-20 min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto px-4">
+          <div className="text-red-600 mb-4">
+            <svg className="h-16 w-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Unable to Load Job</h2>
+          <p className="text-gray-600 mb-6">{error}</p>
+          <Link to="/jobs" className="btn-primary">
+            Back to All Jobs
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  // Job not found
   if (!job) {
     return (
       <div className="pt-20">
@@ -36,7 +77,7 @@ const JobDetail = () => {
   const IconComponent = Stethoscope
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 overflow-x-hidden">
       <SEO 
         title={`${job.title} - Nexus Recruitment`}
         description={job.description}
@@ -45,41 +86,41 @@ const JobDetail = () => {
       />
 
       {/* Back Button & Header */}
-      <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
+      <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding overflow-hidden">
         <div className="container-max">
           <Link to="/jobs" className="inline-flex items-center text-white hover:text-primary-100 mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to All Jobs
           </Link>
           
-          <div className="flex items-start gap-6">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-              <IconComponent className="h-8 w-8 text-white" />
+          <div className="flex items-start gap-4 md:gap-6">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-white" />
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow min-w-0">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl md:text-4xl font-heading font-bold">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold break-words">
                   {job.title}
                 </h1>
-                {job.featured && <Star className="h-6 w-6 text-yellow-300" />}
+                {job.featured && <Star className="h-5 w-5 md:h-6 md:w-6 text-yellow-300 flex-shrink-0" />}
               </div>
               <div className="flex items-center text-primary-100 mb-4">
-                <Building className="h-5 w-5 mr-2" />
-                <span className="text-lg font-medium">{job.company}</span>
+                <Building className="h-4 w-4 md:h-5 md:w-5 mr-2 flex-shrink-0" />
+                <span className="text-base md:text-lg font-medium break-words">{job.company}</span>
               </div>
               
-              <div className="flex flex-wrap gap-6 text-sm md:text-base">
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2" />
-                  {job.location}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6 text-sm md:text-base">
+                <div className="flex items-start">
+                  <MapPin className="h-4 w-4 md:h-5 md:w-5 mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.location}</span>
                 </div>
-                <div className="flex items-center">
-                  <DollarSign className="h-5 w-5 mr-2" />
-                  {job.salary}
+                <div className="flex items-start">
+                  <DollarSign className="h-4 w-4 md:h-5 md:w-5 mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.salary}</span>
                 </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-2" />
-                  {job.type}
+                <div className="flex items-start">
+                  <Clock className="h-4 w-4 md:h-5 md:w-5 mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.type}</span>
                 </div>
               </div>
             </div>
@@ -250,7 +291,7 @@ const JobDetail = () => {
                 Apply Now - Contact Us
                 <ExternalLink className="ml-3 h-6 w-6" />
               </Link>
-              <p className="text-sm text-primary-100 mt-4">Posted {job.posted}</p>
+              <p className="text-sm text-primary-100 mt-4">Posted {getRelativeTime(job.postedDate)}</p>
             </div>
           </div>
         </div>

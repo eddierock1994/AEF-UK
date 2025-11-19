@@ -16,12 +16,16 @@ import {
   Building,
   Calendar
 } from 'lucide-react'
-import jobListingsData from '../data/jobListings.json'
+import { getRelativeTime } from '../utils/dateUtils'
+import { useJobListings } from '../hooks/useJobListings'
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedSector, setSelectedSector] = useState('all')
   const [selectedLocation, setSelectedLocation] = useState('all')
+  
+  // Use custom hook to fetch job listings
+  const { jobListings: jobListingsData, isLoading, error, refetch } = useJobListings()
 
   // Icon mapping for sectors
   const sectorIcons = {
@@ -31,10 +35,11 @@ const Jobs = () => {
     'Specialty Trades': HardHat
   }
 
-  // Add icons to job data
+  // Add icons and calculated posted time to job data
   const jobListings = jobListingsData.map(job => ({
     ...job,
-    icon: sectorIcons[job.sector] || Stethoscope
+    icon: sectorIcons[job.sector] || Stethoscope,
+    posted: getRelativeTime(job.postedDate)
   }))
 
   /* Commented out old job listings
@@ -187,6 +192,41 @@ const Jobs = () => {
         canonical="/jobs"
         structuredData={jobsSchema}
       />
+      
+      {/* Loading State */}
+      {isLoading && (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-600 mx-auto mb-4"></div>
+            <p className="text-xl text-gray-600">Loading job opportunities...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && !isLoading && (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center max-w-md mx-auto px-4">
+            <div className="text-red-600 mb-4">
+              <svg className="h-16 w-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Unable to Load Jobs</h2>
+            <p className="text-gray-600 mb-6">{error}</p>
+            <button 
+              onClick={refetch} 
+              className="btn-primary"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      {!isLoading && !error && (
+        <>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white section-padding">
         <div className="container-max text-center">
@@ -311,6 +351,8 @@ const Jobs = () => {
         </div>
       </section>
       */}
+        </>
+      )}
     </div>
   )
 }
@@ -326,33 +368,33 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
             <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center flex-shrink-0">
               <IconComponent className="h-6 w-6 text-white" />
             </div>
-            <div className="flex-grow">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">
+            <div className="flex-grow min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-2">
+                <div className="min-w-0 flex-grow">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-1 break-words">
                     {job.title}
                     {featured && <Star className="inline h-4 w-4 text-yellow-500 ml-2" />}
                   </h3>
                   <div className="flex items-center text-gray-600 mb-2">
-                    <Building className="h-4 w-4 mr-1" />
-                    <span className="font-medium">{job.company}</span>
+                    <Building className="h-4 w-4 mr-1 flex-shrink-0" />
+                    <span className="font-medium break-words">{job.company}</span>
                   </div>
                 </div>
-                <span className="text-sm text-gray-500">{job.posted}</span>
+                <span className="text-sm text-gray-500 whitespace-nowrap sm:mt-0.5 flex-shrink-0">{job.posted}</span>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3 text-sm">
-                <div className="flex items-center text-gray-600">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  {job.location}
+                <div className="flex items-start text-gray-600">
+                  <MapPin className="h-4 w-4 mr-1 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.location}</span>
                 </div>
-                <div className="flex items-center text-gray-600">
-                  <DollarSign className="h-4 w-4 mr-1" />
-                  {job.salary}
+                <div className="flex items-start text-gray-600">
+                  <DollarSign className="h-4 w-4 mr-1 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.salary}</span>
                 </div>
-                <div className="flex items-center text-gray-600">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {job.type}
+                <div className="flex items-start text-gray-600">
+                  <Clock className="h-4 w-4 mr-1 mt-0.5 flex-shrink-0" />
+                  <span className="break-words">{job.type}</span>
                 </div>
               </div>
               
@@ -395,27 +437,27 @@ const JobCard = ({ job, featured, layout = 'vertical' }) => {
   return (
     <div className={`card hover:shadow-xl transition-all duration-300 ${featured ? 'ring-2 ring-yellow-400' : ''}`}>
       <div className="flex items-start justify-between mb-4">
-        <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center">
+        <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-lg flex items-center justify-center flex-shrink-0">
           <IconComponent className="h-6 w-6 text-white" />
         </div>
-        {featured && <Star className="h-5 w-5 text-yellow-500" />}
+        {featured && <Star className="h-5 w-5 text-yellow-500 flex-shrink-0" />}
       </div>
       
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{job.title}</h3>
-      <p className="text-gray-600 font-medium mb-3">{job.company}</p>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2 break-words">{job.title}</h3>
+      <p className="text-gray-600 font-medium mb-3 break-words">{job.company}</p>
       
       <div className="space-y-2 mb-4 text-sm">
-        <div className="flex items-center text-gray-600">
-          <MapPin className="h-4 w-4 mr-2" />
-          {job.location}
+        <div className="flex items-start text-gray-600">
+          <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+          <span className="break-words">{job.location}</span>
         </div>
-        <div className="flex items-center text-gray-600">
-          <DollarSign className="h-4 w-4 mr-2" />
-          {job.salary}
+        <div className="flex items-start text-gray-600">
+          <DollarSign className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+          <span className="break-words">{job.salary}</span>
         </div>
-        <div className="flex items-center text-gray-600">
-          <Clock className="h-4 w-4 mr-2" />
-          {job.type}
+        <div className="flex items-start text-gray-600">
+          <Clock className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+          <span className="break-words">{job.type}</span>
         </div>
       </div>
       
