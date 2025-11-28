@@ -26,7 +26,9 @@ export const useJobListings = () => {
 
     try {
       setIsLoading(true)
-      const response = await fetch('https://eddierock1994.github.io/AEF-UK/public/data/jobListings.json')
+      // Add cache busting parameter to prevent browser caching issues
+      const cacheBuster = `?t=${Date.now()}`
+      const response = await fetch(`https://eddierock1994.github.io/AEF-UK/public/data/jobListings.json${cacheBuster}`)
       
       if (!response.ok) {
         throw new Error('Failed to fetch job listings')
